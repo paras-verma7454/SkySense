@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4052/4052984.png">
+    <title>Weather App</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-size: cover;
+            background-position: center;
+            /* transition: background-image  ; */
+            opacity: background-image 80%;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            margin: 10px;
+            width: 200px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #weatherData {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Weather App</h2>
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <button onclick="getWeather()">Get Weather</button>
+        <div id="weatherData"></div>
+    </div>
+
+    <script>
+        async function getWeather() {
+            const city = document.getElementById('cityInput').value;
+            const apiKey = '36454e3a0498fa4d928b2174262a1359'; // Replace with your own OpenWeatherMap API key
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                const weatherData = document.getElementById('weatherData');
+
+                if (data.cod === 200) {
+                    const { main, weather } = data;
+                    const { temp } = main;
+                    const { description, main: weatherMain } = weather[0];
+
+                    weatherData.innerHTML = `
+                        <h3>Weather in ${city}</h3>
+                        <p>Temperature: ${temp}°C</p>
+                        <p>Weather: ${description}</p>
+                    `;
+
+                    // Change background based on weather
+                    if (weatherMain === 'Clear') {
+                        document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?clear')"; // Replace with your own image URL
+                    } else if (weatherMain === 'Clouds') {
+                        document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?cloudy')"; // Replace with your own image URL
+                    } else if (weatherMain === 'Rain') {
+                        document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?rainy')"; // Replace with your own image URL
+                    } else {
+                        document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?weather')"; // Replace with your own image URL
+                    }
+                } else {
+                    weatherData.innerHTML = `<p>City not found</p>`;
+                }
+            } catch (error) {
+                console.error('Error fetching data', error);
+            }
+        }
+    </script>
+</body>
+</html>
