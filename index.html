@@ -1,9 +1,7 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4052/4052984.png">
     <title>Weather App</title>
     <style>
        body {
@@ -43,13 +41,15 @@
             padding: 10px 20px;
             background-color: #4CAF50;
             color: white;
-            border: none;
+            border: 2px solid #45a049;
             border-radius: 5px;
             cursor: pointer;
+            transition: .2s;
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: transparent;
+            color: #45a049 ;
         }
 
         #weatherData {
@@ -61,6 +61,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
+
 </head>
 <body>
     <div class="container">
@@ -86,19 +87,38 @@
                     const { temp } = main;
                     const { description, main: weatherMain } = weather[0];
 
+                    let weatherEmoji = '';
+                    if (weatherMain === 'Clear') {
+                        weatherEmoji = '☀️';
+                    } else if (weatherMain === 'Clouds') {
+                        weatherEmoji = '☁️';
+                    } else if (weatherMain === 'Rain') {
+                        weatherEmoji = '🌧️';
+                    } else if (weatherMain === 'Snow') {
+                        weatherEmoji = '❄️';
+                    } else if (weatherMain === 'Haze' || weatherMain === 'Mist' || weatherMain === 'Fog') {
+                        weatherEmoji = '🌫️';
+                    } else if (weatherMain === 'Thunderstorm') {
+                        weatherEmoji = '⛈️';
+                    } else {
+                        weatherEmoji = '❓';
+                    }
+
                     weatherData.innerHTML = `
                         <h3>Weather in ${city}</h3>
+                        <p>${weatherEmoji} ${description}</p>
                         <p>Temperature: ${temp}°C</p>
-                        <p>Weather: ${description}</p>
                     `;
 
                     // Change background based on weather
                     if (weatherMain === 'Clear') {
-                        document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?clear')"; // Replace with your own image URL
+                        document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1623846736569-1d90cba76d65?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"; // Replace with your own image URL
                     } else if (weatherMain === 'Clouds') {
-                        document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?cloudy')"; // Replace with your own image URL
-                    } else if (weatherMain === 'Rain') {
-                        document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?rainy')"; // Replace with your own image URL
+                        document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1463947628408-f8581a2f4aca?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"; // Replace with your own image URL
+                    } else if (weatherMain === 'Rain' || weatherMain === 'Thunderstorm') {
+                        document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1475116127127-e3ce09ee84e1?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"; // Replace with your own image URL
+                    } else if (weatherMain === 'Snow') {
+                        document.body.style.backgroundImage = "url('https://images.unsplash.com/photo-1517299321609-52687d1bc55a?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"; // Replace with your own image URL
                     } else {
                         document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?weather')"; // Replace with your own image URL
                     }
