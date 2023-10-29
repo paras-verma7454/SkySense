@@ -1,83 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>   
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sky Sense</title>
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4052/4052984.png"> 
-<!--     Paras verma -->
-<!--     css -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4052/4052984.png">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-            background-size: cover;
-            background-position: center;
-            /* You can add a futuristic background image or gradient here */
-           background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
-            opacity: 0.8; /* This property should not be used here */
-        }
     
-        .container {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            /* You can add some futuristic design styles here */
-           border: 2px solid #00ff00;
-        }
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    background-image: url(https://ubuntuhandbook.org/wp-content/uploads/2021/07/M-Maggs-pixabay.jpg)  ;
+    opacity: background-image 80%;
     
-        h2 {
-            color: #333;
-            /* You can add some futuristic font styles here */
-           font-size: 24px; font-weight: 600;
-        }
-    
-        input[type="text"] {
-            padding: 8px;
-            margin: 10px;
-            width: 200px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            /* You can add some futuristic input field styles here */
-            background-color: #f2f2f2; color: #333;
-        }
-    
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: 2px solid #45a049;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.2s;
-            /* You can add some futuristic button styles here */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-    
-        button:hover {
-            background-color: transparent;
-            color: #45a049;
-            /* You can add some hover effects for a futuristic touch */
-            transform: scale(1.1);
-        }
-    
-        #weatherData {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            /* background-color: #fff; */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            /* You can add some futuristic styles for the weather data section */
-            background-color: #f9f9f9;
-        }
-        footer{
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+input[type="text"] {
+    padding: 8px;
+    margin: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #45a049;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+button:hover {
+    background-color: transparent;
+    color: #45a049 ;
+}
+
+#weatherData {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    /* background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+footer{
     
             
              text-align: center;
@@ -87,7 +75,6 @@
             padding: 10px 0;
 }
     </style>
-    
 </head>
 <body>
     <div class="container">
@@ -163,8 +150,6 @@
             }
         }
     </script>
-    <footer>
-        &copy;Paras Verma
-    </footer>
+    
 </body>
 </html>
