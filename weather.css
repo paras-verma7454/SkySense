@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    background-image: url(https://ubuntuhandbook.org/wp-content/uploads/2021/07/M-Maggs-pixabay.jpg);
+    opacity: background-image 80%;
+
+}
+
+.container {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    background-color: transparent;
+    backdrop-filter: blur(3px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    color: whitesmoke;
+}
+
+input[type="text"] {
+    padding: 8px;
+    margin: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #45a049;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+button:hover {
+    background-color: transparent;
+    color: #45a049;
+}
+
+#weatherData {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    /* color:#4CAF50; */
+    /* background-color: #fff;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+footer {
+
+
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 0;
+}
